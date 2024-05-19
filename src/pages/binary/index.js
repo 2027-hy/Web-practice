@@ -24,7 +24,7 @@ function changeBinary(num) {
 }
 
 export default function Binary(){
-    const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL||'/';
     const [decimal, setDecimal] = useState('');
     const [binary, setBinary] = useState('');
     const update_num = (num) => {

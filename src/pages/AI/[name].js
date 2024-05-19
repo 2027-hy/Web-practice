@@ -5,18 +5,37 @@ import Link from "next/link";
 //SSR
 export async function getServerSideProps({ params }) {
     const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const req = await fetch(`${baseURL}/${params.name}.json`);
-    const data = await req.json();
-    return {
-        props: {
-            ai: data,
-        },
-    };
+    try {
+        const req = await fetch(`${baseURL}/ai.json`);
+        if (!req.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await req.json();
+        const paths = data.map(ai => {
+            return {
+                params: {
+                    name: ai,
+                },
+            };
+        });
+        return {
+            paths,
+            fallback: false,
+        };
+    } catch (error) {
+        return {
+            paths: [],
+            fallback: false,
+        };
+    }
 }
 
 const Ai = ({ai}) => {
     const router = useRouter();
     const {name} = router.query
+    if (!ai) {
+        return <h1>データが見つかりませんでした</h1>;
+    }
     return (
     <div className  ={styles.container}>
         <main className ={styles.main}>

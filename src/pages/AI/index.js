@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 
 export default function AI(){
-    const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL||'/';
     return (
         <div className  ={styles.container}>
             <main className ={styles.main}>
