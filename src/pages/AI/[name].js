@@ -3,32 +3,6 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 //SSR
-export async function getServerSideProps({ params }) {
-    const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL|| '/';
-    try {
-        const req = await fetch(`${baseURL}/ai.json`);
-        if (!req.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await req.json();
-        const paths = data.map(ai => {
-            return {
-                params: {
-                    name: ai,
-                },
-            };
-        });
-        return {
-            paths,
-            fallback: false,
-        };
-    } catch (error) {
-        return {
-            paths: [],
-            fallback: false,
-        };
-    }
-}
 export async function getStaticProps({params}){
     const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL|| '/';
     const req = await fetch(`${baseURL}/${params.name}.json`);
