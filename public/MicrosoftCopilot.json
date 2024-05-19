@@ -1,0 +1,5 @@
+{
+    "name":"MicrosoftCopilot",
+    "message":"Microsoft Copilotは、コード補完や提案を行うためのAIツールです。開発者がコードを書く際に、Copilotはそのコードのコンテキストを理解し、適切なコードの断片を提案します。このツールは、GitHubのテキストデータからトレーニングされたOpenAIのGPT-3モデルを使用しています。Copilotは、開発プロセスを効率化し、生産性を向上させるのに役立ちます。",
+    "Link" :"https://www.bing.com/chat"
+}

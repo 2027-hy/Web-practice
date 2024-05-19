@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.container{
+  padding: 2 2rem;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -35,8 +39,10 @@
 }
 
 .code {
-  font-weight: 700;
+  font-size: 8rem;
+  font-weight: 1000;
   font-family: var(--font-mono);
+
 }
 
 .grid {
@@ -44,6 +50,31 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   max-width: var(--max-width);
   width: 100%;
+}
+
+.title {
+  
+  font-size: 16rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.label {
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 2rem ;
+  text-align: center;
+}
+
+.form {
+  background-color: rgb(168, 168, 234);
+  color:black;
+  padding: 15px;
+  font-size: 3rem;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .card {
