@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
-//SSR
+//SSG
 export async function getStaticProps({params}){
     const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL|| '/';
     const req = await fetch(`${baseURL}/${params.name}.json`);
