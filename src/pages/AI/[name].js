@@ -5,41 +5,50 @@ import Link from "next/link";
 //SSG
 export async function getStaticProps({params}){
     const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL|| '/';
-    const req = await fetch(`${baseURL}/${params.name}.json`);
-    if (!req.ok) {
-        return {fallback: false};
-    }
-    else{
+    try {
+        const req = await fetch(`${baseURL}/${params.name}.json`);
+        if (!req.ok) {
+            return { notFound: true }; // 404ページを表示するようにする
+        }
         const data = await req.json();
-    return{
-        props:{
-            ai: data,
-            fallback: false,
-        },
-    };
+        return {
+            props: {
+                ai: data,
+            },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
     }
 }
 export async function getStaticPaths(){
     const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL|| '/';
-    const req = await fetch (`${baseURL}/ai.json`);
+    try{
+        const req = await fetch (`${baseURL}/ai.json`);
     if (!req.ok) {
-        return {fallback: false};
+        return {paths: [], fallback: false};
     }
-    else{
         const data = await req.json();
-    const paths = data.map(ai=>{
-        return{
-            params:{
-                name: ai,
-            },
-        };
-    });
+        const paths = data.map(ai=>{
+            return{
+                params:{
+                    name: ai,
+                },
+            };
+        });
     return{
         paths,
         fallback: false,
     };
-}  
 }
+    catch(error){
+        return {
+        paths: [],
+        fallback: false,};
+    }
+}    
+ 
 const Ai = ({ai}) => {
     const router = useRouter();
     const {name} = router.query
