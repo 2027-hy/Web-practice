@@ -39,7 +39,7 @@
 }
 
 .code {
-  position: relative;
+  position: absolute;
   font-size: 2rem;
   font-weight: 1000;
   font-family: var(--font-mono);
@@ -54,7 +54,7 @@
 }
 
 .title {
-  position: relative;
+  position: absolute;
   font-size: 4rem;
   font-weight: bold;
   margin: 2rem 0;
@@ -63,7 +63,7 @@
 }
 
 .label {
-  position: relative;
+  position: absolute;
   font-size: 2rem;
   font-weight: bold;
   margin: 2rem ;
@@ -71,7 +71,7 @@
 }
 
 .form {
-  position: relative;
+  position: absolute;
   background-color: rgb(168, 168, 234);
   color:black;
   padding: 15px;
