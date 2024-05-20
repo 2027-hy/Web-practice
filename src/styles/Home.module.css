@@ -39,7 +39,6 @@
 }
 
 .code {
-  position: absolute;
   font-size: 2rem;
   font-weight: 1000;
   font-family: var(--font-mono);
@@ -54,7 +53,6 @@
 }
 
 .title {
-  position: absolute;
   font-size: 4rem;
   font-weight: bold;
   margin: 2rem 0;
@@ -63,7 +61,6 @@
 }
 
 .label {
-  position: absolute;
   font-size: 2rem;
   font-weight: bold;
   margin: 2rem ;
@@ -71,7 +68,6 @@
 }
 
 .form {
-  position: absolute;
   background-color: rgb(168, 168, 234);
   color:black;
   padding: 15px;
